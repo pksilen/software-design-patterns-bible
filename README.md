@@ -133,3 +133,121 @@ Driver acts as a factory for Connection objects.
 Different database vendors provide concrete drivers (MySQLDriver, PostgresDriver), each producing a family of objects (Connection, Statement, ResultSet) that are compatible with that DB.
 
 Client code just interacts with the interfaces; the concrete classes are supplied by the driver.
+
+
+Here’s a **condensed, high-signal cheat sheet** of **non-GoF design patterns**, grouped by domain and stripped to essentials.
+
+---
+
+# 🚀 **Non-GoF Design Patterns — Condensed Cheat Sheet**
+
+## **1. Architectural & Enterprise Patterns**
+
+* **Layered Architecture** — Organize system into presentation, business, data layers.
+* **Hexagonal / Ports & Adapters** — Core domain isolated from external systems.
+* **Clean / Onion Architecture** — Dependency rule: outer rings depend on inner.
+* **CQRS** — Separate read and write models.
+* **Event Sourcing** — Persist all domain events; reconstruct state by replaying.
+* **Service Layer** — API exposing application operations.
+* **Repository** — Collections-like interface for aggregates or entities.
+* **Unit of Work** — Track changes, commit as a transaction.
+* **Domain Model** — Rich business logic inside objects.
+* **Active Record** — Object wraps DB row + CRUD.
+* **Data Mapper** — Object ↔ DB table mapping (ORM style).
+* **Identity Map** — Ensure object identity uniqueness.
+* **Lazy Load** — Defer expensive loading until needed.
+
+---
+
+## **2. Concurrency & Parallelism Patterns**
+
+* **Reactor** — Event loop dispatches non-blocking I/O.
+* **Proactor** — OS completes I/O asynchronously and invokes handlers.
+* **Half-Sync/Half-Async** — Async front; sync workers.
+* **Leader–Followers** — Threads share request queue, rotate leadership.
+* **Thread Pool** — Reusable worker threads.
+* **Active Object** — Encapsulate asynchronous method calls.
+* **Guarded Suspension** — Wait until precondition holds.
+* **Future / Promise** — Placeholder for async result.
+* **Producer–Consumer** — Queue between producers and workers.
+* **Pipeline** — Break tasks into sequential processing stages.
+
+---
+
+## **3. Distributed Systems & Integration Patterns**
+
+* **Pub/Sub** — Publish messages to subscribers.
+* **Message Bus** — Shared transport for events/commands.
+* **Circuit Breaker** — Prevent cascading failures by opening/closing calls.
+* **Retry** — Re-execute failed operations with backoff.
+* **Timeout** — Fail on slow operations.
+* **Bulkhead** — Isolate resources to contain failures.
+* **Saga** — Distributed transactions via compensating steps.
+* **API Gateway** — Single router for services.
+* **Message Translator / Filter / Router / Aggregator / Splitter** — Message-shaping patterns (EIP).
+* **Sidecar / Ambassador** — Infrastructure logic moved to helper process.
+* **Service Discovery** — Automatically locate service endpoints.
+
+---
+
+## **4. DDD (Domain-Driven Design) Patterns**
+
+* **Entity** — Identity-based domain object.
+* **Value Object** — Immutable, equality by value.
+* **Aggregate** — Consistency boundary + root.
+* **Domain Event** — Represents something that happened.
+* **Factory (DDD)** — Create complex aggregates.
+* **Bounded Context** — Explicit domain boundary.
+* **Context Map:**
+
+    * **Anti-corruption Layer**
+    * **Shared Kernel**
+    * **Conformist**
+    * **Published Language**
+
+---
+
+## **5. UI / Presentation Patterns**
+
+* **MVC** — Model ↔ View mediated by Controller.
+* **MVP** — Presenter handles logic; view is passive.
+* **MVVM** — View ↔ ViewModel via data binding.
+* **Flux** — Unidirectional data flow.
+* **Redux** — Single state container + reducers.
+* **Coordinator** — Centralizes navigation logic.
+
+---
+
+## **6. Microservices Patterns**
+
+* **Strangler Fig** — Gradual replacement of legacy system.
+* **Database per Service** — Independent persistence.
+* **CQRS** (cross-listed)
+* **Saga** (cross-listed)
+* **Backends for Frontends (BFF)** — Per-client API layers.
+* **Sidecar / Ambassador / Adapter** — Service mesh roles.
+
+---
+
+## **7. Testing & Deployment Patterns**
+
+* **Test Double** — Stub, Mock, Fake, Spy.
+* **Snapshot Testing** — Persist output snapshots for comparison.
+* **Golden Master** — Compare against known-good output.
+* **Feature Toggle** — Turn features on/off at runtime.
+* **Blue–Green Deployment** — Two environments for safe switching.
+* **Canary Release** — Roll out to subset of users first.
+
+---
+
+## **8. Language / Paradigm Patterns**
+
+* **Dependency Injection** — Externalize object dependencies.
+* **Mixin** — Reusable behavior via composition.
+* **Null Object** — Non-operational placeholder object.
+* **Monad** — FP-style effect packaging.
+* **Prototype Delegation (JS)** — Behavior via prototype chain.
+
+---
+
+If you want, I can also create a **printable one-page PDF**, a **visual diagram**, or a **quiz-style version** to memorize these patterns.
